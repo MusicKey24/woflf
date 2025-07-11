@@ -13,34 +13,38 @@
       font-family: 'Quicksand', sans-serif;
       background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
-      overflow: hidden;
       color: #fff;
+      overflow-x: hidden;
+    }
+
+    body {
+      overflow-y: auto;
     }
 
     .overlay {
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(8px);
-      position: absolute;
-      inset: 0;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2vh 4vw;
+      padding: 4vh 5vw;
+      box-sizing: border-box;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
+      font-size: 2.5rem;
       text-align: center;
+      margin-bottom: 2rem;
       color: #ffeedd;
-      margin-bottom: 20px;
     }
 
     .main-section {
       display: flex;
       gap: 2rem;
       width: 100%;
-      max-width: 1000px;
+      max-width: 1200px;
       flex-wrap: wrap;
       justify-content: center;
       align-items: flex-start;
@@ -53,6 +57,10 @@
       border: 5px solid rgba(255, 255, 255, 0.3);
       background: url('background.jpg') no-repeat center center;
       background-size: cover;
+      flex-shrink: 0;
+    }
+
+    .rotate {
       animation: spin 15s linear infinite;
     }
 
@@ -75,7 +83,7 @@
 
     .lyrics {
       font-size: 1.1rem;
-      line-height: 1.8;
+      line-height: 1.7;
       white-space: pre-line;
       text-align: justify;
     }
@@ -124,6 +132,7 @@
       background: linear-gradient(to right, #9d5f52, #4d484d);
       border-radius: 10px;
       outline: none;
+      touch-action: pan-y;
     }
 
     input[type="range"]::-webkit-slider-thumb {
@@ -146,25 +155,38 @@
     }
 
     @media (max-width: 768px) {
+      .main-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .lyrics-box {
+        width: 100%;
+        max-height: 300px;
+      }
+
       h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
-      .spinning-disk {
-        width: 1080px;
-        height: 1080px;
-      }
+
       .lyrics {
         font-size: 1rem;
       }
     }
 
-    @media (max-width: 1080px) {
-      .main-section {
-        flex-direction: column;
-        align-items: center;
-      }
+    @media (max-width: 480px) {
       .spinning-disk {
-        margin-bottom: 1rem;
+        width: 90vw;
+        height: 90vw;
+      }
+
+      button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+      }
+
+      .lyrics-box {
+        padding: 15px;
       }
     }
   </style>
@@ -175,7 +197,7 @@
     <h1>Waltz of Four Left Feet</h1>
 
     <div class="main-section">
-      <div class="spinning-disk"></div>
+      <div class="spinning-disk" id="disk"></div>
 
       <div class="lyrics-box">
         <div class="lyrics">
@@ -213,7 +235,7 @@ Kung wala ka sa 'king buhay walang kalungkutan<br>
 Hindi ko yata tanggap ang buhay<br>
 Kung sa'n 'di ko mahawakan ang iyong kamay<br>
 Handa 'kong harapin ka walang katiyakan<br>
-Kahit na takot sa maaaring kasagutan 
+Kahit na takot sa maaaring kasagutan
         </div>
       </div>
     </div>
@@ -235,6 +257,7 @@ Kahit na takot sa maaaring kasagutan
   <script>
     const music = document.getElementById('bgMusic');
     const progress = document.getElementById('progress');
+    const disk = document.getElementById('disk');
 
     function playMusic() {
       music.play();
@@ -248,7 +271,16 @@ Kahit na takot sa maaaring kasagutan
       music.pause();
       music.currentTime = 0;
       progress.value = 0;
+      disk.classList.remove('rotate');
     }
+
+    music.addEventListener('play', () => {
+      disk.classList.add('rotate');
+    });
+
+    music.addEventListener('pause', () => {
+      disk.classList.remove('rotate');
+    });
 
     music.addEventListener('timeupdate', () => {
       const percent = (music.currentTime / music.duration) * 100;
