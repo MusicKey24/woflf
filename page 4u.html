@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waltz of Four Left Feet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Quicksand', sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2vh 4vw;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      text-align: center;
+      color: #ffeedd;
+      margin-bottom: 20px;
+    }
+
+    .main-section {
+      display: flex;
+      gap: 2rem;
+      width: 100%;
+      max-width: 1000px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .spinning-disk {
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      background: url('background.jpg') no-repeat center center;
+      background-size: cover;
+      animation: spin 15s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .lyrics-box {
+      flex: 1;
+      min-width: 280px;
+      max-width: 600px;
+      height: 40vh;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .lyrics {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      white-space: pre-line;
+      text-align: justify;
+    }
+
+    .controls {
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: rgba(255, 255, 255, 0.4);
+      color: black;
+    }
+
+    .progress-container {
+      width: 100%;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(to right, #9d5f52, #4d484d);
+      border-radius: 10px;
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 18px;
+      width: 18px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .lyrics-box::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .lyrics-box::-webkit-scrollbar-thumb {
+      background-color: rgba(255,255,255,0.3);
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .spinning-disk {
+        width: 1080px;
+        height: 1080px;
+      }
+      .lyrics {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .main-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .spinning-disk {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+    <h1>Waltz of Four Left Feet</h1>
+
+    <div class="main-section">
+      <div class="spinning-disk"></div>
+
+      <div class="lyrics-box">
+        <div class="lyrics">
+Sapat na sa 'kin ang ganito oh<br>
+Ang pagmasdan ka sa malayo<br>
+Kapag kinausap walang masagot<br>
+Hininga'y lagot<br>
+Hindi ko naman yata ikamamatay<br>
+Kung hindi ko mahawakan ang iyong kamay<br>
+Handa 'kong mabuhay sa aking kalokohan<br>
+Kung wala ka sa 'king buhay walang kalungkutan<br><br>
+
+Munting ligayang iyong hatid<br>
+Tuwing dahan-dahan kang darating<br>
+Kagandahan masisilayan<br>
+Dahan-dahang lilisan<br>
+Hindi ko naman yata ikamamatay<br>
+Kung hindi ko mahawakan ang iyong kamay<br>
+Handa 'kong harapin ang kasinungalingan<br>
+Kung wala ka sa 'king buhay walang kakulangan<br><br>
+
+Sapat na sa akin (na sa akin)<br>
+Hindi na aamin (na aamin)<br>
+Hindi na aasa (na aasa)<br>
+Ako'y maligaya (maligaya)<br>
+Sapat na sa akin<br>
+'Di na aaminin<br>
+Hindi na aasa<br>
+Ako'y liligaya<br><br>
+
+Hindi ko naman yata ikamamatay<br>
+Kung hindi ko mahawakan ang iyong kamay<br>
+Handa 'kong mabuhay sa aking kalokohan<br>
+Kung wala ka sa 'king buhay walang kalungkutan<br>
+Hindi ko yata tanggap ang buhay<br>
+Kung sa'n 'di ko mahawakan ang iyong kamay<br>
+Handa 'kong harapin ka walang katiyakan<br>
+Kahit na takot sa maaaring kasagutan 
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="buttons">
+        <button onclick="playMusic()">▶ Play</button>
+        <button onclick="pauseMusic()">⏸ Pause</button>
+        <button onclick="resetMusic()">⟲ Reset</button>
+      </div>
+      <div class="progress-container">
+        <input type="range" id="progress" value="0" min="0" max="100">
+      </div>
+    </div>
+  </div>
+
+  <audio id="bgMusic" src="music.mp3"></audio>
+
+  <script>
+    const music = document.getElementById('bgMusic');
+    const progress = document.getElementById('progress');
+
+    function playMusic() {
+      music.play();
+    }
+
+    function pauseMusic() {
+      music.pause();
+    }
+
+    function resetMusic() {
+      music.pause();
+      music.currentTime = 0;
+      progress.value = 0;
+    }
+
+    music.addEventListener('timeupdate', () => {
+      const percent = (music.currentTime / music.duration) * 100;
+      progress.value = percent || 0;
+    });
+
+    progress.addEventListener('input', () => {
+      const seekTime = (progress.value / 100) * music.duration;
+      music.currentTime = seekTime;
+    });
+  </script>
+
+</body>
+</html>
