@@ -30,6 +30,7 @@
       align-items: center;
       padding: 4vh 5vw;
       box-sizing: border-box;
+      width: 100%;
     }
 
     h1 {
@@ -47,7 +48,8 @@
       max-width: 1200px;
       flex-wrap: wrap;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
+      box-sizing: border-box;
     }
 
     .spinning-disk {
@@ -160,8 +162,18 @@
         align-items: center;
       }
 
+      .spinning-disk {
+        width: 90vw;
+        height: 90vw;
+        max-width: 450px;
+        max-height: 450px;
+      }
+
       .lyrics-box {
-        width: 100%;
+        width: 90vw;
+        max-width: 60px;
+        margin: 20px auto 0 auto;
+        display: block;
         max-height: 300px;
       }
 
@@ -175,11 +187,6 @@
     }
 
     @media (max-width: 480px) {
-      .spinning-disk {
-        width: 90vw;
-        height: 90vw;
-      }
-
       button {
         font-size: 0.9rem;
         padding: 8px 15px;
